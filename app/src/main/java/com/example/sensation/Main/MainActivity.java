@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
         if (activeNetwork != null) {
+            connectionImg.setImageResource(R.drawable.check_mark);
+            connectionImg.setVisibility(View.VISIBLE);
             checkTextMain.setText("You have connection!\nMoving you to login!");
             Handler handler = new Handler();
             handler.postDelayed(new Runnable() {
@@ -50,11 +52,16 @@ public class MainActivity extends AppCompatActivity {
                 }
             }, waitTime);
         } else {
+            Handler handler = new Handler();
+            connectionImg.setImageResource(R.drawable.wifi);
             connectionImg.setVisibility(View.VISIBLE);
             checkTextMain.setText("You don't have connection!\nExiting app!");
-            finish();
+            handler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    finish();
+                }
+            }, waitTime);
         }
-
-
     }
 }

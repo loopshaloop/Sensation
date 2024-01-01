@@ -20,9 +20,6 @@ public class GamePresenter {
     }
     public boolean checkChallenge(){
         boolean state = false;
-        //check the challenge state and
-        //return true if the challenge is done
-        //and false otherwise
         return state;
     }
     public void challengeSuccess(){

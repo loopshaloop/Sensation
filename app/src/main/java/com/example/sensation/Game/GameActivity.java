@@ -20,13 +20,17 @@ import androidx.appcompat.widget.AppCompatButton;
 
 import com.example.sensation.R;
 
+import java.text.DecimalFormat;
+
 public class GameActivity extends AppCompatActivity implements SensorEventListener {
     protected TextView time;
     protected ImageView menu;
     protected AppCompatButton levelButt;
     protected AppCompatButton finishButt;
+    private double max = 0;
     private TextView levelText;
     private TextView accelerationText;
+    private TextView maxAccel;
     GamePresenter gamePresenter;
     private CountDownTimer countDownTimer;
     private long timeLeftinMilliseconds;
@@ -42,10 +46,9 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
         timeLeftinMilliseconds = gamePresenter.baseTime * 1000;
         menu = findViewById(R.id.menu_game);
         time = findViewById(R.id.time_game);
-        levelButt = findViewById(R.id.level_butt);
-        finishButt = findViewById(R.id.finish_butt);
         levelText = findViewById(R.id.level_game);
         accelerationText = findViewById(R.id.acceleration_game);
+        maxAccel = findViewById(R.id.max_accel);
         sensorManager=(SensorManager) getSystemService(SENSOR_SERVICE);
         sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
         countDownTimer = new CountDownTimer(timeLeftinMilliseconds, 100) {
@@ -63,38 +66,6 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
                 gamePresenter.challengeFailed();
             }
         }.start();
-        levelButt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gamePresenter.challengeSuccess();
-                countDownTimer.cancel();
-                timeLeftinMilliseconds = gamePresenter.baseTime * 1000;
-                updateTime();
-                countDownTimer = new CountDownTimer(timeLeftinMilliseconds, 100) {
-                    @Override
-                    public void onTick(long millisUntilFinished) {
-                        timeLeftinMilliseconds = millisUntilFinished;
-                        updateTime();
-                        if(timeLeftinMilliseconds > 0){
-                            if(gamePresenter.checkChallenge())
-                                gamePresenter.challengeSuccess();
-                        }
-                    }
-                    @Override
-                    public void onFinish() {
-                        gamePresenter.challengeFailed();
-                    }
-                }.start();
-                levelText.setText("Level: " + gamePresenter.level);
-            }
-        });
-        finishButt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                gamePresenter.challengeFailed();
-            }
-        });
-
     }
     public void menuDialog() {
         Dialog dialog = new Dialog(this);
@@ -149,18 +120,45 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType()==Sensor.TYPE_ACCELEROMETER){
+        if (event.sensor.getType()==Sensor.TYPE_ACCELEROMETER) {
             ax=event.values[0];
             ay=event.values[1];
             az=event.values[2];
-            double acc = Math.sqrt(Math.pow(ax, 2) + Math.pow(ay, 2) + Math.pow(az, 2));
-            accelerationText.setText("Your acceleration: " + acc + "m/s^2");
-        }
+            DecimalFormat df = new DecimalFormat("#.#");
+            double acc = Math.abs(Math.sqrt(Math.pow(ax, 2) + Math.pow(ay, 2) + Math.pow(az, 2)) - 9.8);
+            if (acc > max){
+                max = acc;
+                maxAccel.setText("Highest acceleration: " + max);
+            }
 
+            if (acc > 60){
+                gamePresenter.challengeSuccess();
+                countDownTimer.cancel();
+                timeLeftinMilliseconds = gamePresenter.baseTime * 1000;
+                updateTime();
+                countDownTimer = new CountDownTimer(timeLeftinMilliseconds, 100) {
+                    @Override
+                    public void onTick(long millisUntilFinished) {
+                        timeLeftinMilliseconds = millisUntilFinished;
+                        updateTime();
+                        if(timeLeftinMilliseconds > 0){
+                            if(gamePresenter.checkChallenge())
+                                gamePresenter.challengeSuccess();
+                        }
+                    }
+                    @Override
+                    public void onFinish() {
+                        gamePresenter.challengeFailed();
+                    }
+                }.start();
+                levelText.setText("Level: " + gamePresenter.level);
+            }
+            accelerationText.setText("Your acceleration: " + df.format(acc) + "m/s^2");
+            System.out.println(df.format(acc));
+        }
     }
 
     @Override
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
-
     }
 }

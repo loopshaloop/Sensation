@@ -19,7 +19,7 @@ public class StatisticsPresenter {
 
     public void InitializeGraph(XYPlot graph){
 
-        Number[] series1Numbers = {2, 3, 4, 5, 6, 7, 8, 9};
+        Number[] series1Numbers = {0, 2, 3, 4, 7, 6, 7, 8, 9};
         XYSeries series1 = new SimpleXYSeries(Arrays.asList(series1Numbers), SimpleXYSeries.ArrayFormat.Y_VALS_ONLY, "Series 1");
         LineAndPointFormatter series1Format = new LineAndPointFormatter(Color.RED, Color.RED, Color.TRANSPARENT, null);
         graph.addSeries(series1, series1Format);
