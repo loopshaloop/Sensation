@@ -48,6 +48,7 @@
         android:ems="10"
         android:inputType="textPassword"
         android:text="Password"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/login_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
