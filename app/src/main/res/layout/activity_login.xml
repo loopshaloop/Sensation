@@ -28,11 +28,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:inputType="text"
         android:text="Username"
+
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/password_login"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
@@ -40,6 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="40dp"
+        android:backgroundTint="#000000"
         android:ems="10"
         android:inputType="textPassword"
         android:text="Password"
@@ -55,6 +60,7 @@
         android:backgroundTint="#808080"
         android:fontFamily="sans-serif-condensed"
         android:text="Login"
+        android:textColor="#FFFFFF"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -68,8 +74,9 @@
         android:layout_marginTop="100dp"
         android:backgroundTint="#808080"
         android:fontFamily="sans-serif-condensed"
-        android:textStyle="bold"
         android:text="I don't have an account"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
