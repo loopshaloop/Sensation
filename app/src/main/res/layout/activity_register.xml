@@ -79,6 +79,7 @@
         android:fontFamily="sans-serif-condensed"
         android:textStyle="bold"
         android:text="Register Form"
+        android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/username_register"
         app:layout_constraintEnd_toEndOf="parent"
