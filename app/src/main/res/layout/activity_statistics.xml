@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:ap="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/background1"
+    >
 
     <com.androidplot.xy.XYPlot
         android:id="@+id/graph_stats"
@@ -13,8 +14,8 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="20dp"
-        ap:domainTitle="Day in the week"
-        ap:rangeTitle="Level"
+        app:domainTitle="Day in the week"
+        app:rangeTitle="Level"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,17 +38,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="B0oga" />
+            android:text="B0oga"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"
+            />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PR level: 32168" />
+            android:text="PR level: 32168"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PR Time: 1m 18s" />
+            android:text="PR Time: 1m 18s"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"/>
 
         <ImageView
             android:layout_width="58dp"
@@ -71,23 +79,30 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Faker" />
+            android:text="Faker"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PR level: 32167" />
+            android:text="PR level: 32167"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PR Time: 1m 19s" />
+            android:text="PR Time: 1m 19s"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"/>
 
         <ImageView
             android:layout_width="58dp"
             android:layout_height="57dp"
             android:layout_marginLeft="20dp"
-            android:src="@drawable/silver_trophy" />
+            android:src="@drawable/silver_trophy"
+            />
     </LinearLayout>
 
     <LinearLayout
@@ -106,17 +121,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="penguinz0" />
+            android:text="penguinz0"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PR level: 32166" />
+            android:text="PR level: 32166"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PR Time: 1m 20s" />
+            android:text="PR Time: 1m 20s"
+            android:fontFamily="sans-serif-condensed"
+            android:textStyle="bold"/>
 
         <ImageView
             android:layout_width="58dp"
@@ -131,6 +152,8 @@
         android:background="@drawable/rounded_corner"
         android:padding="10dp"
         android:text="PB Level: 99"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.26"
@@ -143,6 +166,8 @@
         android:background="@drawable/rounded_corner"
         android:padding="10dp"
         android:text="PB Time: 8m 36s"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.75"

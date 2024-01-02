@@ -120,17 +120,16 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
 
     @Override
     public void onSensorChanged(SensorEvent event) {
-        if (event.sensor.getType()==Sensor.TYPE_ACCELEROMETER) {
-            ax=event.values[0];
-            ay=event.values[1];
-            az=event.values[2];
+        if (event.sensor.getType()==Sensor.TYPE_LINEAR_ACCELERATION) {
+            float ax = event.values[0];
+            float ay = event.values[1];
+            float az = event.values[2];
             DecimalFormat df = new DecimalFormat("#.#");
-            double acc = Math.abs(Math.sqrt(Math.pow(ax, 2) + Math.pow(ay, 2) + Math.pow(az, 2)) - 9.8);
+            double acc = Math.abs(Math.sqrt(Math.pow(ax, 2) + Math.pow(ay, 2) + Math.pow(az, 2)));
             if (acc > max){
                 max = acc;
                 maxAccel.setText("Highest acceleration: " + max);
             }
-
             if (acc > 60){
                 gamePresenter.challengeSuccess();
                 countDownTimer.cancel();

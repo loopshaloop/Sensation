@@ -3,24 +3,30 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="@drawable/background1">
 
     <TextView
         android:id="@+id/welcome_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello, You!"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
         android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/stats_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Statistics"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:backgroundTint="#808080"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
@@ -28,10 +34,13 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.75" />
 
-    <androidx.appcompat.widget.AppCompatButton
+    <Button
         android:id="@+id/play_home"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:backgroundTint="#808080"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
         android:text="Play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,6 +56,8 @@
         android:layout_marginBottom="200dp"
         android:background="@drawable/rounded_corner"
         android:text="PB Level: 99  PB Time: 8m 36s"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
         android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/welcome_home"
         app:layout_constraintEnd_toEndOf="parent"
