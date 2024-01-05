@@ -50,7 +50,7 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
         accelerationText = findViewById(R.id.acceleration_game);
         maxAccel = findViewById(R.id.max_accel);
         sensorManager=(SensorManager) getSystemService(SENSOR_SERVICE);
-        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER), SensorManager.SENSOR_DELAY_NORMAL);
+        sensorManager.registerListener(this, sensorManager.getDefaultSensor(Sensor.TYPE_LINEAR_ACCELERATION), SensorManager.SENSOR_DELAY_NORMAL);
         countDownTimer = new CountDownTimer(timeLeftinMilliseconds, 100) {
             @Override
             public void onTick(long millisUntilFinished) {
@@ -128,7 +128,7 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
             double acc = Math.abs(Math.sqrt(Math.pow(ax, 2) + Math.pow(ay, 2) + Math.pow(az, 2)));
             if (acc > max){
                 max = acc;
-                maxAccel.setText("Highest acceleration: " + max);
+                maxAccel.setText("Highest acceleration: " + df.format(max) + "m/s^2");
             }
             if (acc > 60){
                 gamePresenter.challengeSuccess();
@@ -153,7 +153,6 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
                 levelText.setText("Level: " + gamePresenter.level);
             }
             accelerationText.setText("Your acceleration: " + df.format(acc) + "m/s^2");
-            System.out.println(df.format(acc));
         }
     }
 
