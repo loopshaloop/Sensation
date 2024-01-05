@@ -95,7 +95,7 @@ public class GameActivity extends AppCompatActivity implements SensorEventListen
     }
     public void quitDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("Are you sure you wan to quit?\nYour progress will not be saved!");
+        builder.setMessage("Are you sure you want to quit?\nYour progress will not be saved!");
         builder.setTitle("Quitting!");
         builder.setPositiveButton("Yes", (DialogInterface.OnClickListener) (dialog, which) -> {
             finish();
