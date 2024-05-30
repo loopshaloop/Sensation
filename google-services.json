@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "425939009459",
+    "project_id": "sensation-a0bb4",
+    "storage_bucket": "sensation-a0bb4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:425939009459:android:e3b30bb5761fc5f13d95c6",
+        "android_client_info": {
+          "package_name": "com.example.sensation"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA5tgbfHS1jFSQRIna60a14tGx4Cyf508g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
